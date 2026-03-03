@@ -5,3 +5,6 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://api.blackroad.io; frame-ancestors 'none'
+  X-BlackRoad-Gateway: cloudflare-ai-gateway
+  X-Permitted-AI-Providers: blackboxprogramming,lucidia

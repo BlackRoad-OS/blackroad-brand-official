@@ -19,7 +19,25 @@ OFFICIAL brand kit
 This project is part of the BlackRoad empire:
 - **GitHub:** https://github.com/BlackRoad-OS/blackroad-brand-official
 - **Live:** https://blackroad-brand-official.pages.dev (or custom domain)
-- **Infrastructure:** Cloudflare Pages + Raspberry Pi cluster
+- **Infrastructure:** Cloudflare Pages + Cloudflare AI Gateway + Tailscale mesh → Raspberry Pi cluster
+
+## Routing & OATH / OAuth
+
+All traffic — including AI vendor API calls — routes exclusively through BlackRoad infrastructure:
+
+```
+Client → Cloudflare Pages → Cloudflare Access (OATH gate) → Tailscale mesh → BlackRoad Pi cluster
+```
+
+- **OATH/OAuth:** Cloudflare Access (zero-trust). See [`OATH.md`](OATH.md) for setup steps.
+- **AI Gateway:** Cloudflare AI Gateway (`wrangler.toml` — slug `blackroad-ai-gateway`)
+- **Approved AI systems:** @blackboxprogramming and @lucidia **only**
+- **Blocked direct vendors:** OpenAI, Anthropic, GitHub Copilot / Codex
+
+## Code Ownership
+
+All changes require review by @blackboxprogramming or @lucidia (see `.github/CODEOWNERS`).
+No Copilot, Codex, or other third-party AI agents are authorized to commit, review, or merge.
 
 ## Brand Compliance
 
@@ -46,4 +64,4 @@ Unauthorized copying, distribution, or use is strictly prohibited.
 
 ---
 
-🎨 Built with Claude Code | Part of the BlackRoad Empire
+🎨 Built with BlackRoad tooling | Part of the BlackRoad Empire
