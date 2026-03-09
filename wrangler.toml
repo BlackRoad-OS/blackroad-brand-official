@@ -1,0 +1,24 @@
+name = "blackroad-brand-official"
+compatibility_date = "2026-01-01"
+
+# Cloudflare Pages project
+pages_build_output_dir = "."
+
+# AI Gateway — routes all vendor AI API calls through Cloudflare's AI Gateway
+# instead of directly to OpenAI / Anthropic / etc.
+# Docs: https://developers.cloudflare.com/ai-gateway/
+[ai]
+binding = "AI"
+
+# Route all AI vendor traffic through the BlackRoad AI Gateway account
+# Set CLOUDFLARE_ACCOUNT_ID in your environment / GitHub secrets
+# Gateway slug is configured in Cloudflare dashboard under AI > AI Gateway
+
+# Environment-specific configuration
+[vars]
+ENVIRONMENT = "production"
+AI_GATEWAY_SLUG = "blackroad-ai-gateway"
+ALLOWED_AI_PROVIDERS = "blackboxprogramming,lucidia"
+
+# Deny-list: these vendor API domains must NOT be called directly
+BLOCKED_DIRECT_VENDORS = "openai.com,anthropic.com,copilot.github.com"
